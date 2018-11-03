@@ -1,5 +1,3 @@
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import java.io.BufferedReader
 import java.io.IOException
@@ -26,7 +24,7 @@ fun handle(socket: Socket): Boolean {
             writer.flush()
         }
 
-    } catch (e: Exception) {
+    } catch (e: IOException) {
         println(e.localizedMessage)
         return false
     } finally {
